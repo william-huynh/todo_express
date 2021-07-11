@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
+        <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+        <!-- <link src="../css/index.css" rel="stylesheet" type="text/css"> -->
+        <%- include('../css/styles'); %>
+        <title>Document</title>
+    </head>
+    <body>
+        <div class="todo_app">
+            <h1>William's To-Do App!</h1>
+            <form action="/" method="post">
+                <div class="mdl-textfield mdl-js-textfield" id="todo_input">
+                    <input name='content' class="mdl-textfield__input" type="text" id="todo">
+                    <label class="mdl-textfield__label" for="todo">Write here!</label>
+                </div>
+                <!-- <input name="content" type="text" id="todo" placeholder="Write something..." /> -->
+            </form>
+            <ul class="demo-list-two mdl-list" id="todo_list">
+                
+            <% todos.forEach(function(todos){ %>
+                <li class="mdl-list__item mdl-list__item--two-line">
+                    <span class="mdl-list__item-primary-content">
+                        <p><%= todos.todo %></p>
+                        <p class="mdl-list__item-sub-title"><%= todos.status ? "In Progress" : "Completed" %></p>
+                    </span>
+                    <span class="mdl-list__item-secondary-action">
+                        <form action="/update" method="post">
+                            <button 
+                                value="<%= todos.status %>" 
+                                name="todoStatus" 
+                                class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect status_button">
+                                <%= todos.status ? "Done" : "Undone" %>
+                            </button>
+                            <input 
+                                style="display: none;" 
+                                value="<%= todos.id%>" 
+                                name="todoId" id="hiddenID"
+                            />
+                        </form>
+                        <form action="/delete" method="post">
+                            <button 
+                                value="<%= todos.id%>" 
+                                name="todoId" 
+                                class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
+                                X
+                            </button>
+                        </form>
+                    </span>
+                </li>
+            <% }); %>
+            </ul>
+        </div>
+    </body>
+</html>

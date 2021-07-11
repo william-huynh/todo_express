@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+    
+    /*--------- WHOLE --------*/
+
+    body {
+        background: #FFD97D;
+    }
+
+    .todo_app {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: auto;
+        width: 40vw;
+        min-height: 100vh;
+        border: 0.8px;
+        border-radius: 20px;
+        background: white;
+    }
+    
+    /*--------- UPPER --------*/
+
+    h1 {
+        font-size: 45px;
+        font-weight: bold;
+        color: orange;
+    }
+
+    #todo_input {
+        width: 26vw;
+    }
+
+    #todo_input label {
+        text-align: center;
+    }
+
+    /*--------- TO DO LIST --------*/
+
+    #todo_list {
+        width: 30vw;
+        margin-top: 0px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #todo_list li {
+        width: 28vw;
+        height: 90px;
+        border: 1px solid #ECECEC;
+        border-radius: 8px;
+        padding: 0px 10px 0px 10px;
+        margin-bottom: 16px;
+    }
+
+    .mdl-list__item-primary-content {
+        margin-top: -16px;
+    }
+
+    .mdl-list__item-primary-content > p {
+        font-size: 20px;
+        margin-bottom: 10px;
+    }
+
+    .mdl-list__item-sub-title{
+        color: #686868;
+    }
+
+    .mdl-list__item-secondary-action {
+        display: flex; 
+        flex-direction: row;
+    }
+
+    .status_button {
+        width: 88px;
+        margin-right: 10px;
+    }
+
+    /*--------- HOVER --------*/
+
+    #todo_list li:hover {
+        background: orange;
+        height: 100px;
+        width: 29vw;
+        transition: 0.4s ease-out;
+    }
+
+    #todo_list li:hover p, #todo_list li:hover button {
+        color: white;
+        transition: 0s;
+    }
+
+    </style>
+</head>
+<body>
+    
+</body>
+</html>
